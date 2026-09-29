@@ -1,87 +1,65 @@
 # C++ Engineering Projects
 
-> **Dépôt documentaire** — UrbanFlow, projet C++ de modélisation d'un réseau de transport et de recherche d'itinéraires. Les sources C++ finales ne sont plus disponibles dans l'archive ; le contenu ci-dessous est reconstruit à partir du rapport conservé.  
+> Collection de projets C++ : **algorithmique/optimisation** et **programmation consultable avec structures dynamiques**.  
 > **English version below.**
 
-## 🇫🇷 UrbanFlow
+## 🇫🇷 Projets
 
-Projet réalisé en binôme. Le programme charge trois fichiers CSV — stations, connexions et coupures — puis construit un graphe orienté sous forme de **matrice d'adjacence enrichie**.
+### 1. UrbanFlow — réseau de transport & optimisation
 
-Chaque arc conserve plusieurs propriétés : existence de la liaison, temps de trajet, occupation, coupure éventuelle et mode de transport.
+Projet réalisé en binôme autour d'un réseau de transport chargé depuis des fichiers CSV.
 
-## Recherche d'itinéraires
+Le réseau est représenté par un graphe orienté sous forme de matrice d'adjacence enrichie. Le calcul d'itinéraire utilise **Dijkstra** avec différents critères : temps, occupation ou nombre d'arrêts. Le projet gère également une station intermédiaire, des coupures actives selon la date et une préférence de mode de transport.
 
-Le moteur utilise **Dijkstra** avec un poids adapté au critère demandé :
-- temps de trajet ;
-- occupation ;
-- nombre d'arrêts.
+Le menu exploitant propose notamment l'analyse de fréquentation et l'affectation de véhicules avec l'**algorithme hongrois**.
 
-Il gère aussi :
-- une station intermédiaire imposée ;
-- les coupures actives à la date choisie ;
-- une préférence métro, bus ou tram.
+**Contribution documentée :** calcul d'itinéraires avec Dijkstra, menu exploitant et fonctions d'analyse ; intégration/optimisation de l'algorithme hongrois réalisée en commun.
 
-Pour une préférence de transport, une première recherche tente d'utiliser uniquement le mode demandé. Si aucun chemin n'existe, une seconde recherche pénalise les autres modes plutôt que de rendre le trajet impossible.
+**Disponibilité :** les sources C++ finales d'UrbanFlow ne sont plus présentes dans l'archive. Aucune reconstruction n'est présentée comme le code original.
 
-La reconstruction du chemin utilise un tableau de prédécesseurs.
+### 2. Bank Account Manager — listes chaînées & persistance
 
-## Analyse exploitant
+Application console C++ de gestion de comptes utilisant une **liste chaînée dynamique**.
 
-Le second profil du programme fournit :
-- station la plus fréquentée ;
-- connexion la plus utilisée ;
-- nombre de coupures actives ;
-- temps moyen entre stations ;
-- normalisation/analyse de l'occupation ;
-- affectation de véhicules avec l'**algorithme hongrois**.
+Fonctionnalités vérifiées dans les sources :
+- structures `Compte` et `Noeud` ;
+- création, consultation, modification et suppression ;
+- allocation/libération dynamique ;
+- recherche de comptes ;
+- validation des entrées ;
+- rôles administrateur/client ;
+- sauvegarde et rechargement depuis un fichier ;
+- transformation/chiffrement pédagogique de données par XOR.
 
-## Architecture documentée
+Les sources originales retrouvées sont disponibles dans :
 
-```text
-main.cpp
-├── chargement des données
-├── choix de la date
-├── menu usager
-└── menu exploitant
+`bank-account-manager/src/`
 
-mesfonctions.cpp / .h
-├── génération de la matrice
-├── Dijkstra
-├── Dijkstra pénalisé
-├── trajet via station
-└── analyse du réseau
+### Nettoyage de sécurité
 
-hungarian.cpp / .h
-└── affectation / optimisation
-```
+L'ancien projet contenait un code administrateur écrit directement dans `fonction.cpp`. Cette valeur n'a **jamais été publiée dans ce dépôt** : elle a été remplacée avant le premier commit par une valeur de démonstration non secrète.
 
-## Ma contribution
-
-La répartition indiquée dans le rapport est la suivante :
-- **Samy Hammadi : Dijkstra, menu exploitant et fonctions d'analyse** ;
-- Mohamed Bensafi : chargement CSV, structures et génération de la matrice ;
-- intégration de l'algorithme hongrois et optimisation : travail commun.
-
-## Limites identifiées
-
-Le rapport relève trois limites principales : données CSV statiques, interface console et coût mémoire d'une matrice N×N pour un grand réseau peu dense. Une liste d'adjacence et des données temps réel seraient des évolutions naturelles.
-
-## Sources
-
-Le rapport technique décrit les structures et fonctions avec précision, mais les fichiers C++ finaux ne sont plus présents dans l'archive. Je ne publie donc pas une reconstitution présentée comme le code original.
+Le mécanisme d'authentification reste pédagogique et ne doit pas être considéré comme un système de sécurité destiné à la production.
 
 ---
 
-# 🇬🇧 UrbanFlow
+# 🇬🇧 C++ Engineering Projects
 
-UrbanFlow is a two-person C++ project that models a public-transport network from station, connection and disruption CSV files.
+This repository combines two complementary C++ projects.
 
-The network is represented as an enriched directed adjacency matrix. Route computation uses **Dijkstra's algorithm** with different edge costs for travel time, occupancy and number of stops. It also supports intermediate stations, date-dependent disruptions and transport-mode preferences.
+### UrbanFlow
 
-An operator menu computes network indicators and uses the **Hungarian algorithm** for vehicle allocation.
+A public-transport network model using graph algorithms, **Dijkstra**, multiple route criteria and the **Hungarian algorithm** for vehicle allocation. The final original source files are no longer available, so the project remains transparently documented rather than reconstructed.
 
-### My contribution
+### Bank Account Manager
 
-According to the project report, my main work covered **Dijkstra route computation, the operator menu and network-analysis functions**. CSV loading and matrix generation were handled by my teammate; Hungarian-algorithm integration was joint work.
+A console application whose recovered original sources demonstrate:
+- structs and pointers;
+- dynamic linked lists;
+- CRUD operations;
+- input validation;
+- file persistence;
+- administrator/client roles;
+- a small educational XOR-based data transformation.
 
-**Documentation repository:** the final C++ source files are no longer available in the archive. This README reconstructs the verified project architecture and behavior from the preserved report; no replacement source code is presented as original.
+The historical code is intentionally kept close to its student-project form. A hard-coded administrator value found in the archive was sanitized **before the first public commit**.
