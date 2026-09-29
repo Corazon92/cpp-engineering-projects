@@ -15,7 +15,7 @@ Le menu exploitant propose notamment l'analyse de fréquentation et l'affectatio
 
 **Contribution documentée :** calcul d'itinéraires avec Dijkstra, menu exploitant et fonctions d'analyse ; intégration/optimisation de l'algorithme hongrois réalisée en commun.
 
-**Disponibilité :** les sources C++ finales d'UrbanFlow ne sont plus présentes dans l'archive. Aucune reconstruction n'est présentée comme le code original.
+**Disponibilité :** les sources C++ finales retrouvées sont désormais publiées dans [`urbanflow/`](urbanflow/), avec les jeux de données CSV nécessaires.
 
 ### 2. Bank Account Manager — listes chaînées & persistance
 
@@ -49,7 +49,7 @@ This repository combines two complementary C++ projects.
 
 ### UrbanFlow
 
-A public-transport network model using graph algorithms, **Dijkstra**, multiple route criteria and the **Hungarian algorithm** for vehicle allocation. The final original source files are no longer available, so the project remains transparently documented rather than reconstructed.
+A public-transport network model using graph algorithms, **Dijkstra**, multiple route criteria and the **Hungarian algorithm** for vehicle allocation. The recovered final source files and CSV datasets are available in [`urbanflow/`](urbanflow/).
 
 ### Bank Account Manager
 
