@@ -1,6 +1,6 @@
 # C++ Engineering Projects
 
-> Projet principal : **UrbanFlow**, modélisation d'un réseau de transport et recherche d'itinéraires.  
+> **Dépôt documentaire** — UrbanFlow, projet C++ de modélisation d'un réseau de transport et de recherche d'itinéraires. Les sources C++ finales ne sont plus disponibles dans l'archive ; le contenu ci-dessous est reconstruit à partir du rapport conservé.  
 > **English version below.**
 
 ## 🇫🇷 UrbanFlow
@@ -84,4 +84,4 @@ An operator menu computes network indicators and uses the **Hungarian algorithm*
 
 According to the project report, my main work covered **Dijkstra route computation, the operator menu and network-analysis functions**. CSV loading and matrix generation were handled by my teammate; Hungarian-algorithm integration was joint work.
 
-The final C++ files are no longer available in the archive, so this repository documents the verified implementation without fabricating source code.
+**Documentation repository:** the final C++ source files are no longer available in the archive. This README reconstructs the verified project architecture and behavior from the preserved report; no replacement source code is presented as original.
